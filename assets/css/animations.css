@@ -1,0 +1,318 @@
+/* Animaciones y Keyframes */
+
+/* Fade In */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* ANIMACIONES SIMPLIFICADAS PARA CARDS - SOLO FADE UP */
+
+/* Card Fade Up Simple */
+.animate-card-fade-up {
+  animation: cardFadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes cardFadeUp {
+  0% { 
+    opacity: 0; 
+    transform: translateY(50px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+/* Card Fade Up con Delay */
+.animate-card-fade-up-delayed {
+  animation: cardFadeUpDelayed 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes cardFadeUpDelayed {
+  0% { 
+    opacity: 0; 
+    transform: translateY(60px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(30px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+/* Card Fade Up Suave */
+.animate-card-fade-up-smooth {
+  animation: cardFadeUpSmooth 1.0s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes cardFadeUpSmooth {
+  0% { 
+    opacity: 0; 
+    transform: translateY(40px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+/* Card Fade Up con Easing Personalizado */
+.animate-card-fade-up-ease {
+  animation: cardFadeUpEase 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes cardFadeUpEase {
+  0% { 
+    opacity: 0; 
+    transform: translateY(45px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(10px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+/* ESTILOS ADICIONALES PARA MEJORAR LA EXPERIENCIA VISUAL */
+
+/* Asegurar que las cards permanezcan visibles después de la animación */
+.service-card.animated,
+.benefit-card.animated,
+.process-card.animated,
+.process-step.animated,
+.detailed-service.animated,
+.cta-option.animated {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Asegurar que las cards tengan el estado inicial correcto */
+.service-card,
+.benefit-card,
+.process-card,
+.process-step,
+.detailed-service,
+.cta-option {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+}
+
+
+
+/* Slide In Left */
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  from { 
+    opacity: 0; 
+    transform: translateX(-50px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+/* Slide In Right */
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+  from { 
+    opacity: 0; 
+    transform: translateX(50px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+/* Zoom In */
+.animate-zoom-in {
+  animation: zoomIn 0.6s ease-out;
+}
+
+@keyframes zoomIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.8); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+/* Bounce */
+.animate-bounce {
+  animation: bounce 1s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Pulse */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Spin */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading Circle (para Ant Design) */
+@keyframes loadingCircle {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.anticon-spin::before,
+.anticon-spin {
+  display: inline-block;
+  animation: loadingCircle 1s infinite linear;
+}
+
+/* Wave effect (para Ant Design) */
+.ant-wave {
+  position: absolute;
+  background: transparent;
+  pointer-events: none;
+  box-sizing: border-box;
+  color: var(--wave-color, #1677ff);
+  box-shadow: 0 0 0 0 currentcolor;
+  opacity: 0.2;
+}
+
+.ant-wave.wave-motion-appear {
+  transition: box-shadow 0.4s cubic-bezier(0.08, 0.82, 0.17, 1), opacity 2s cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+
+.ant-wave.wave-motion-appear-active {
+  box-shadow: 0 0 0 6px currentcolor;
+  opacity: 0;
+}
+
+.ant-wave.wave-motion-appear.wave-quick {
+  transition: box-shadow 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Zoom In para Ant Design */
+@keyframes antZoomIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animaciones con delays */
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+
+/* Animaciones de entrada escalonadas SIMPLIFICADAS */
+.stagger-animation > * {
+  animation: cardFadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-animation > *:nth-child(7) { animation-delay: 0.7s; }
+.stagger-animation > *:nth-child(8) { animation-delay: 0.8s; }
+
+
+
+/* Animaciones de texto */
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal > * {
+  animation: textReveal 0.8s ease-out forwards;
+  transform: translateY(100%);
+}
+
+@keyframes textReveal {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Animaciones de carga */
+.loading-dots {
+  display: inline-block;
+}
+
+.loading-dots::after {
+  content: '';
+  animation: loadingDots 1.5s infinite;
+}
+
+@keyframes loadingDots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}

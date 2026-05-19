@@ -1,0 +1,125 @@
+/* Archivo principal de estilos - Katema Landing Page */
+
+/* Importar todos los archivos CSS */
+@import url('utilities.css');
+@import url('main.css');
+@import url('antd-overrides.css');
+@import url('animations.css');
+
+/* Estilos adicionales específicos del proyecto */
+
+/* Asegurar que las variables CSS estén disponibles globalmente */
+:root {
+  --katema-yellow: #cfff0d;
+  --katema-black: #0d0d0e;
+  --katema-gray: #1a1a1a;
+  --katema-yellow-hover: #b8e600;
+}
+
+/* Estilos globales adicionales */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Mejoras de accesibilidad */
+*:focus {
+  outline: 2px solid var(--katema-yellow);
+  outline-offset: 2px;
+}
+
+/* Optimizaciones de rendimiento */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estilos para imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilos para enlaces */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--katema-yellow);
+}
+
+/* Estilos para botones */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Estilos para listas */
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilos para el scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--katema-yellow);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--katema-yellow-hover);
+}
+
+/* Estilos para selección de texto */
+::selection {
+  background-color: var(--katema-yellow);
+  color: var(--katema-black);
+}
+
+::-moz-selection {
+  background-color: var(--katema-yellow);
+  color: var(--katema-black);
+}
+
+/* Estilos para el modo oscuro (si se implementa en el futuro) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --katema-black: #ffffff;
+    --katema-gray: #f8f9fa;
+  }
+}
+
+/* Estilos para impresión */
+@media print {
+  .floating-whatsapp,
+  .animate-fade-in,
+  .animate-slide-in-left,
+  .animate-slide-in-right {
+    display: none !important;
+  }
+  
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,9 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+- el proyecto completo debe ser solo html, css, con JS
+- cualquier libreria o iconografia debe ser CDN externo o descagado en local en assets.
+- el sitio completo debe estar optimizado para SEO.
+- cualquier componente que se agrege debe ser Mobile-first responsive design.

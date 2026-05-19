@@ -1,0 +1,96 @@
+/* Sobrescrituras de Ant Design */
+
+/* Botones personalizados */
+.ant-btn {
+  border-radius: 8px !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.ant-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Formularios */
+.ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.ant-input,
+.ant-input-textarea {
+  border-radius: 8px !important;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.ant-input:focus,
+.ant-input-textarea:focus,
+.ant-input:hover,
+.ant-input-textarea:hover {
+  border-color: var(--katema-yellow);
+  box-shadow: 0 0 0 2px rgba(207, 255, 13, 0.2);
+}
+
+/* Colores personalizados para botones */
+.ant-btn-primary {
+  background-color: var(--katema-yellow) !important;
+  border-color: var(--katema-yellow) !important;
+  color: var(--katema-black) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #b8e600 !important;
+  border-color: #b8e600 !important;
+  color: var(--katema-black) !important;
+}
+
+/* Estilos para el header */
+.ant-layout-header {
+  background: transparent;
+  padding: 0;
+  height: auto;
+  line-height: normal;
+}
+
+/* Estilos para las tarjetas */
+.ant-card {
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.ant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Estilos para iconos */
+.anticon {
+  vertical-align: middle;
+}
+
+/* Estilos para el grid system */
+.ant-col {
+  padding: 0 8px;
+}
+
+/* Estilos para el footer */
+.ant-layout-footer {
+  background: var(--katema-black);
+  color: white;
+  padding: 40px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ant-col {
+    padding: 0 4px;
+  }
+  
+  .ant-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
