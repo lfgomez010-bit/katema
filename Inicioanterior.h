@@ -3,748 +3,553 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katema Marketing Digital | Estrategias 360° para tu Negocio</title>
-    <meta name="description" content="Impulsa tu negocio con estrategias de marketing digital integral. Especialistas en SEO, contenidos y publicidad digital en Chile">
-    <meta name="keywords" content="marketing digital, SEO, publicidad digital, estrategia digital, contenidos, Chile">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Katema Marketing Digital | Estrategias 360°">
-    <meta property="og:description" content="Impulsa tu negocio con estrategias de marketing digital integral">
+    <title>Katema | Tecnología, Marketing y Café — Una sola marca</title>
+    <meta name="description" content="Katema es una marca que crea empresas. Tecnología, marketing digital y café de especialidad bajo una misma visión: construir con propósito.">
+    <meta name="keywords" content="Katema, tecnología, marketing digital, café especialidad, Chile, marca">
+
+    <meta property="og:title" content="Katema | Una marca, múltiples mundos">
+    <meta property="og:description" content="Tecnología, marketing y café bajo una sola visión.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://katema.cl">
-    
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://katema.cl">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Chart.js CDN para el círculo interactivo -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- GSAP CDN para animaciones -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon_ico/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_ico/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_ico/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_ico/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon_ico/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon_ico/android-chrome-512x512.png">
-    <link rel="manifest" href="favicon_ico/site.webmanifest">
-    
-    <!-- CSS Stylesheets -->
-    <link href="assets/css/html5-semantic.css" rel="stylesheet">
-    <link href="assets/css/animations.css" rel="stylesheet">
-    <link href="assets/css/circle360.css" rel="stylesheet">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Katema Marketing Digital",
-        "url": "https://katema.cl",
-        "logo": "https://katema.cl/assets/images/logo_solo_transparente.svg",
-        "description": "Agencia de marketing digital especializada en estrategias 360° para el crecimiento empresarial",
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "CL",
-            "addressLocality": "Santiago"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+56912345678",
-            "contactType": "customer service",
-            "email": "hola@katema.cl"
-        },
-        "sameAs": [
-            "https://facebook.com/katema",
-            "https://instagram.com/katema",
-            "https://linkedin.com/company/katema"
-        ]
-    }
-    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:       #08080E;
+            --bg-2:     #0E0E18;
+            --bg-card:  #111120;
+            --border:   #1C1C2E;
+            --yellow:   #F5C842;
+            --yellow-dim: rgba(245,200,66,0.08);
+            --yellow-mid: rgba(245,200,66,0.2);
+            --text-1:   #EEEEF8;
+            --text-2:   #7777AA;
+            --text-3:   #3A3A5C;
+
+            /* sub-brand accents */
+            --tech:     #00D4FF;
+            --tech-dim: rgba(0,212,255,0.08);
+            --mkt:      #7C3AED;
+            --mkt-dim:  rgba(124,58,237,0.08);
+            --cafe:     #C8913A;
+            --cafe-dim: rgba(200,145,58,0.08);
+
+            --radius:   16px;
+            --radius-sm:10px;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-1);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+        .section { padding: 96px 0; }
+
+        /* ─── Header ─── */
+        .site-header {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(8,8,14,0.9); backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        .header-inner {
+            display: flex; align-items: center;
+            justify-content: space-between; height: 68px;
+        }
+        .brand-logo {
+            font-size: 22px; font-weight: 900;
+            letter-spacing: -0.03em; color: var(--text-1);
+        }
+        .brand-logo span { color: var(--yellow); }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { font-size: 14px; color: var(--text-2); font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-1); }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 22px; border-radius: var(--radius-sm);
+            font-size: 14px; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; border: none; font-family: 'Inter', sans-serif;
+        }
+        .btn-yellow { background: var(--yellow); color: #08080E; }
+        .btn-yellow:hover { background: #e6b800; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,200,66,0.3); }
+        .btn-border { background: transparent; color: var(--text-1); border: 1.5px solid var(--border); }
+        .btn-border:hover { border-color: var(--yellow); color: var(--yellow); }
+
+        /* ─── Hero ─── */
+        .hero {
+            min-height: 96vh; display: flex;
+            align-items: center; padding: 80px 0;
+            position: relative; overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(ellipse 50% 60% at 50% 0%, rgba(245,200,66,0.06) 0%, transparent 65%),
+                radial-gradient(ellipse 30% 40% at 15% 80%, rgba(0,212,255,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse 30% 40% at 85% 80%, rgba(124,58,237,0.04) 0%, transparent 60%);
+        }
+        /* Subtle grid */
+        .hero-bg::after {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(245,200,66,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(245,200,66,0.025) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+        .hero-content { text-align: center; max-width: 820px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: var(--yellow);
+            margin-bottom: 28px;
+        }
+        .hero-eyebrow::before, .hero-eyebrow::after {
+            content: ''; display: block; width: 32px; height: 1px; background: var(--yellow); opacity: 0.5;
+        }
+        .hero-title {
+            font-size: clamp(44px, 7vw, 88px);
+            font-weight: 900; letter-spacing: -0.04em;
+            line-height: 1.0; margin-bottom: 28px;
+        }
+        .hero-title .name {
+            background: linear-gradient(135deg, #fff 30%, var(--yellow) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-title .sub {
+            font-size: 0.55em; display: block;
+            font-weight: 300; letter-spacing: 0.01em;
+            color: var(--text-2); -webkit-text-fill-color: var(--text-2);
+            margin-top: 8px; line-height: 1.4;
+        }
+        .hero-desc {
+            font-size: 18px; color: var(--text-2);
+            max-width: 560px; margin: 0 auto 44px; line-height: 1.75;
+        }
+        .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        /* ─── Brand cards / Verticales ─── */
+        .brands-section { background: var(--bg-2); }
+        .brands-header { text-align: center; margin-bottom: 56px; }
+        .section-eyebrow {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--yellow);
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800; letter-spacing: -0.02em; line-height: 1.15;
+        }
+        .section-sub { font-size: 16px; color: var(--text-2); margin-top: 12px; }
+
+        .brands-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+        .brand-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); overflow: hidden;
+            transition: all 0.3s; display: flex; flex-direction: column;
+            position: relative;
+        }
+        .brand-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
+        .brand-card::before {
+            content: ''; position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .brand-card:hover::before { opacity: 1; }
+
+        /* Per-brand colors */
+        .card-tech { --accent: var(--tech); --accent-dim: var(--tech-dim); }
+        .card-tech::before { background: linear-gradient(90deg, var(--tech), transparent); }
+        .card-tech:hover { border-color: rgba(0,212,255,0.25); }
+
+        .card-mkt { --accent: var(--mkt); --accent-dim: var(--mkt-dim); }
+        .card-mkt::before { background: linear-gradient(90deg, var(--mkt), transparent); }
+        .card-mkt:hover { border-color: rgba(124,58,237,0.25); }
+
+        .card-cafe { --accent: var(--cafe); --accent-dim: var(--cafe-dim); }
+        .card-cafe::before { background: linear-gradient(90deg, var(--cafe), transparent); }
+        .card-cafe:hover { border-color: rgba(200,145,58,0.25); }
+
+        .brand-card-top {
+            padding: 36px 32px 28px;
+            border-bottom: 1px solid var(--border); flex: 1;
+        }
+        .brand-icon {
+            width: 56px; height: 56px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; margin-bottom: 24px;
+            background: var(--accent-dim); color: var(--accent);
+        }
+        .brand-label {
+            font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+        }
+        .brand-name {
+            font-size: 26px; font-weight: 900; letter-spacing: -0.02em;
+            margin-bottom: 14px;
+        }
+        .brand-desc { font-size: 14px; color: var(--text-2); line-height: 1.7; margin-bottom: 20px; }
+        .brand-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .btag {
+            font-size: 11px; padding: 4px 10px;
+            border-radius: 999px; font-weight: 500;
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .brand-card-cta {
+            padding: 20px 32px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .brand-url { font-size: 13px; color: var(--text-3); font-weight: 500; }
+        .brand-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 13px; font-weight: 700; color: var(--accent);
+            transition: gap 0.2s;
+        }
+        .brand-link:hover { gap: 10px; }
+
+        /* ─── Manifiesto ─── */
+        .manifesto {
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .manifesto-bg {
+            position: absolute; inset: 0; pointer-events: none;
+            background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(245,200,66,0.04) 0%, transparent 70%);
+        }
+        .manifesto-quote {
+            font-size: clamp(24px, 3.5vw, 40px);
+            font-weight: 700; letter-spacing: -0.02em;
+            line-height: 1.3; max-width: 760px; margin: 0 auto;
+            color: var(--text-1);
+        }
+        .manifesto-quote em { color: var(--yellow); font-style: normal; }
+        .manifesto-author {
+            margin-top: 32px; font-size: 14px; color: var(--text-3);
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+        }
+        .manifesto-author::before, .manifesto-author::after {
+            content: ''; display: block; width: 40px; height: 1px; background: var(--border);
+        }
+
+        /* ─── Valores ─── */
+        .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+        .value-block {
+            background: var(--bg-2); padding: 40px 28px;
+            text-align: center;
+        }
+        .value-block:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+        .value-block:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+        .value-icon {
+            font-size: 28px; color: var(--yellow);
+            margin-bottom: 16px; display: block;
+        }
+        .value-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .value-text { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+        /* ─── Contacto ─── */
+        .contact-inner {
+            max-width: 600px; margin: 0 auto; text-align: center;
+        }
+        .contact-desc { font-size: 17px; color: var(--text-2); margin: 16px 0 40px; line-height: 1.7; }
+        .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .contact-link {
+            display: flex; align-items: center; gap: 10px;
+            padding: 16px 24px; background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: var(--radius-sm);
+            font-size: 14px; font-weight: 500; color: var(--text-2);
+            transition: all 0.2s;
+        }
+        .contact-link i { color: var(--yellow); font-size: 16px; }
+        .contact-link:hover { border-color: var(--yellow); color: var(--text-1); transform: translateY(-2px); }
+
+        /* ─── Footer ─── */
+        .site-footer {
+            background: #05050A; border-top: 1px solid var(--border);
+            padding: 56px 0 32px;
+        }
+        .footer-inner {
+            display: flex; align-items: flex-start;
+            justify-content: space-between; gap: 48px;
+            margin-bottom: 40px; flex-wrap: wrap;
+        }
+        .footer-brand-name { font-size: 24px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 10px; }
+        .footer-brand-name span { color: var(--yellow); }
+        .footer-tagline { font-size: 13px; color: var(--text-3); margin-bottom: 20px; }
+        .social-links { display: flex; gap: 10px; }
+        .social-link {
+            width: 36px; height: 36px; background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: var(--text-2); transition: all 0.2s;
+        }
+        .social-link:hover { border-color: var(--yellow); color: var(--yellow); }
+        .footer-nav { display: flex; gap: 48px; }
+        .footer-col-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-1); font-weight: 700; margin-bottom: 14px; }
+        .footer-links { display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a { font-size: 14px; color: var(--text-2); transition: color 0.2s; }
+        .footer-links a:hover { color: var(--yellow); }
+        .footer-bottom {
+            border-top: 1px solid var(--border); padding-top: 24px;
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 12px;
+        }
+        .footer-copy { font-size: 13px; color: var(--text-3); }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 900px) {
+            .brands-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr 1fr; }
+            .value-block:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+            .value-block:last-child { border-radius: 0 0 var(--radius) var(--radius); }
+            .footer-inner { flex-direction: column; }
+            .footer-nav { flex-wrap: wrap; gap: 32px; }
+            .nav-links { display: none; }
+        }
+        @media (max-width: 600px) {
+            .section { padding: 64px 0; }
+            .values-grid { grid-template-columns: 1fr; }
+            .value-block:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+            .hero-title .sub { font-size: 0.45em; }
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Botón WhatsApp Flotante -->
-    <a href="https://wa.me/56912345678" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       class="floating-whatsapp" 
-       title="Contactar por WhatsApp"
-       aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-    </a>
 
-    <!-- Header / Navegación Principal -->
-    <header class="site-header" role="banner">
-        <div class="header-container">
-            <!-- Logo y Marca -->
-            <div class="brand-logo">
-                <img src="assets/images/logo_solo_transparente.svg" 
-                     alt="KATEMA Logo" 
-                     class="logo-image">
-                <div class="brand-text">
-                    <h1 class="brand-name">KATEMA</h1>
-                    <!-- <div class="brand-divider"></div> -->
-                    <p class="brand-tagline">MARKETING Y PUBLICIDAD</p>
-                </div>
-            </div>
-
-            <!-- Navegación Principal -->
-            <nav class="main-navigation" role="navigation" aria-label="Navegación principal">
-                <button class="mobile-menu-close" aria-label="Cerrar menú de navegación">
-                    <i class="fas fa-times"></i>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                    <li><a href="#proceso" class="nav-link">Proceso</a></li>
-                    <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
-                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                </ul>
+<!-- ─── Header ─── -->
+<header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            <a href="#inicio" class="brand-logo">KAT<span>E</span>MA</a>
+            <nav class="nav-links">
+                <a href="#verticales">Nuestras Marcas</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
             </nav>
-
-            <!-- CTA Principal -->
-            <a href="#contacto" class="cta-button primary-cta">Contacta Ahora</a>
-
-            <!-- Menú Móvil Toggle -->
-            <!-- <button class="mobile-menu-toggle" 
-                    aria-label="Abrir menú de navegación" 
-                    aria-expanded="false">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button> -->
+            <a href="#contacto" class="btn btn-yellow">Contactar</a>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Contenido Principal -->
-    <main role="main">
-        <!-- Sección Hero -->
-        <section class="hero-section" id="inicio">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h2 class="hero-title">
-                        <span class="hero-highlight highlighted">Impulsamos marcas con ideas que destacan</span>
-                    </h2>
-                    <p class="hero-description">
-                        En <span style="color: var(--katema-yellow); font-weight: 600;">KATEMA</span> acompañamos a organizaciones y marcas
-                        diseñando estrategias digitales personalizadas que
-                        impulsan su crecimiento, fortalecen su presencia y
-                        consolidan relaciones de valor con sus clientes.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#servicios" class="cta-button secondary-cta">Conocer Más</a>
-                        <a href="#contacto" class="cta-button primary-cta">Contactar Ahora</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Servicios -->
-        <section class="services-section paper-texture" id="servicios">
-            <div class="section-container">
-                <header class="section-header">
-                    <h2 class="section-title highlighted">Estrategia Integral 360°</h2>
-                    <p class="section-subtitle">Con foco en tu cliente ideal y resultados medibles</p>
-                </header>
-
-                <div class="strategy-360-container">
-                    <!-- Círculo Interactivo 360° -->
-                    <div class="circle-360-wrapper">
-                        <div class="circle-360-canvas-container">
-                            <canvas id="circle-360-canvas" class="circle-360-canvas"></canvas>
-                            
-                            <!-- Hub Central -->
-                            <div class="circle-hub">
-                                <div class="hub-content">
-                                    <h3 class="hub-title">KATEMA</h3>
-                                    <p class="hub-subtitle">STRATEGY HUB</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Controles de Navegación -->
-                        <div class="circle-360-controls">
-                            <button class="circle-nav-btn prev-btn" id="prev-step" aria-label="Paso anterior">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="circle-nav-btn next-btn" id="next-step" aria-label="Siguiente paso">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                        
-                        <!-- Indicadores de Pasos -->
-                        <div class="circle-360-indicators">
-                            <button class="step-indicator active" data-step="0" aria-label="Paso 1: Diagnóstico">
-                                <span class="step-number">1</span>
-                            </button>
-                            <button class="step-indicator" data-step="1" aria-label="Paso 2: Estrategia">
-                                <span class="step-number">2</span>
-                            </button>
-                            <button class="step-indicator" data-step="2" aria-label="Paso 3: Contenidos">
-                                <span class="step-number">3</span>
-                            </button>
-                            <button class="step-indicator" data-step="3" aria-label="Paso 4: SEO">
-                                <span class="step-number">4</span>
-                            </button>
-                            <button class="step-indicator" data-step="4" aria-label="Paso 5: Medición">
-                                <span class="step-number">5</span>
-                            </button>
-                            <button class="step-indicator" data-step="5" aria-label="Paso 6: Optimización">
-                                <span class="step-number">6</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Panel de Información -->
-                    <div class="strategy-info-panel">
-                        <div class="strategy-step-content active" id="step-content">
-                            <div class="step-icon">
-                                <i class="fas fa-search" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="step-title">Diagnóstico</h3>
-                            <p class="step-description">Análisis profundo de tu situación actual, competencia y oportunidades de mercado para crear una base sólida para tu estrategia digital.</p>
-                            <div class="step-features">
-                                <div class="step-feature">
-                                    <i class="fas fa-chart-bar" aria-hidden="true"></i>
-                                    <span>Análisis de mercado</span>
-                                </div>
-                                <div class="step-feature">
-                                    <i class="fas fa-users" aria-hidden="true"></i>
-                                    <span>Definición de buyer personas</span>
-                                </div>
-                                <div class="step-feature">
-                                    <i class="fas fa-search" aria-hidden="true"></i>
-                                    <span>Auditoría digital</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Proceso de Valor -->
-        <section class="value-process-section solid-section" id="proceso-valor">
-            <div class="section-container">
-                <header class="section-header">
-                    <h2 class="section-title highlighted">Nuestro Proceso de Valor</h2>
-                    <p class="section-subtitle">Desde la adquisición hasta la fidelización</p>
-                </header>
-
-                <div class="process-grid">
-                    <article class="process-step">
-                        <div class="process-icon">
-                            <i class="fas fa-magnet" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="process-title">Adquisición</h3>
-                        <p class="process-description">Atraemos a tu cliente ideal</p>
-                    </article>
-
-                    <article class="process-step">
-                        <div class="process-icon">
-                            <i class="fas fa-heart" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="process-title">Retención</h3>
-                        <p class="process-description">Construimos relaciones duraderas</p>
-                    </article>
-
-                    <article class="process-step">
-                        <div class="process-icon">
-                            <i class="fas fa-dollar-sign" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="process-title">Revenue</h3>
-                        <p class="process-description">Maximizamos el valor de vida</p>
-                    </article>
-
-                    <article class="process-step">
-                        <div class="process-icon">
-                            <i class="fas fa-share-alt" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="process-title">Referidos</h3>
-                        <p class="process-description">Convertimos clientes en embajadores</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Estrategia y Análisis -->
-        <section class="strategy-section paper-texture">
-            <div class="section-container">
-                <div class="strategy-content">
-                    <article class="strategy-text">
-                        <h2 class="content-title">Estrategia & Análisis</h2>
-                        <p class="content-description">
-                            Desarrollamos estrategias basadas en datos reales y análisis profundo 
-                            de tu mercado. Cada decisión está respaldada por métricas que importan 
-                            para tu negocio.
-                        </p>
-                        <ul class="feature-list">
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle feature-icon" aria-hidden="true"></i>
-                                <span>Análisis competitivo detallado</span>
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle feature-icon" aria-hidden="true"></i>
-                                <span>Definición de buyer personas</span>
-                            </li>
-                            <li class="feature-item">
-                                <i class="fas fa-check-circle feature-icon" aria-hidden="true"></i>
-                                <span>KPIs personalizados</span>
-                            </li>
-                        </ul>
-                    </article>
-
-                    <figure class="strategy-image">
-                        <img src="./assets/images/estrategia.jpg" 
-                             alt="Dashboard de análisis de marketing digital con gráficos y métricas" 
-                             class="content-image">
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Servicios Detallados -->
-        <section class="detailed-services-section solid-section">
-            <div class="section-container">
-                <div class="services-detailed-grid">
-                    <article class="detailed-service">
-                        <div class="service-icon-large">
-                            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="service-title-large">Creatividad & Contenidos</h3>
-                        <p class="service-description-large">
-                            Creamos contenidos que conectan emocionalmente con tu audiencia 
-                            y generan conversiones reales.
-                        </p>
-                        <ul class="service-feature-list">
-                            <li class="service-feature">
-                                <i class="fas fa-palette" aria-hidden="true"></i>
-                                <span>Diseño gráfico profesional</span>
-                            </li>
-                            <li class="service-feature">
-                                <i class="fas fa-video" aria-hidden="true"></i>
-                                <span>Producción audiovisual</span>
-                            </li>
-                            <li class="service-feature">
-                                <i class="fas fa-edit" aria-hidden="true"></i>
-                                <span>Copywriting persuasivo</span>
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article class="detailed-service">
-                        <div class="service-icon-large">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="service-title-large">SEO & Visibilidad</h3>
-                        <p class="service-description-large">
-                            Posicionamos tu marca en los primeros resultados de búsqueda 
-                            para que te encuentren cuando más te necesitan.
-                        </p>
-                        <ul class="service-feature-list">
-                            <li class="service-feature">
-                                <i class="fas fa-key" aria-hidden="true"></i>
-                                <span>Investigación de keywords</span>
-                            </li>
-                            <li class="service-feature">
-                                <i class="fas fa-link" aria-hidden="true"></i>
-                                <span>Link building estratégico</span>
-                            </li>
-                            <li class="service-feature">
-                                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-                                <span>Optimización técnica</span>
-                            </li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-
-
-        <!-- Sección Beneficios -->
-        <section class="benefits-section paper-texture" id="beneficios">
-            <div class="section-container">
-                <header class="section-header">
-                    <h2 class="section-title highlighted">¿Por qué elegir Katema?</h2>
-                    <p class="section-subtitle">Resultados comprobados que impulsan tu crecimiento</p>
-                </header>
-
-                <div class="benefits-grid">
-                    <article class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-rocket" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="benefit-title">Crecimiento Acelerado</h3>
-                        <p class="benefit-description">Estrategias que generan resultados desde el primer mes</p>
-                    </article>
-
-                    <article class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-target" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="benefit-title">ROI Medible</h3>
-                        <p class="benefit-description">Cada peso invertido se traduce en resultados tangibles</p>
-                    </article>
-
-                    <article class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-users" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="benefit-title">Equipo Experto</h3>
-                        <p class="benefit-description">Profesionales especializados en marketing digital</p>
-                    </article>
-
-                    <article class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-chart-bar" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="benefit-title">Reportes Detallados</h3>
-                        <p class="benefit-description">Transparencia total en métricas y resultados</p>
-                    </article>
-
-                    <article class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-clock" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="benefit-title">Respuesta Rápida</h3>
-                        <p class="benefit-description">Atención personalizada y tiempos de respuesta óptimos</p>
-                    </article>
-
-                    <article class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="benefit-title">Garantía de Calidad</h3>
-                        <p class="benefit-description">Compromiso con la excelencia en cada proyecto</p>
-                    </article>
-
-                    <article class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="benefit-title">Tecnología Avanzada</h3>
-                        <p class="benefit-description">Herramientas de última generación</p>
-                    </article>
-
-                    <article class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-handshake" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="benefit-title">Soporte Continuo</h3>
-                        <p class="benefit-description">Acompañamiento permanente en tu crecimiento</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Proceso de Trabajo -->
-        <section class="work-process-section solid-section" id="proceso">
-            <div class="section-container">
-                <header class="section-header">
-                    <h2 class="section-title highlighted">Cómo Trabajamos</h2>
-                    <p class="section-subtitle">Un proceso probado para garantizar tu éxito</p>
-                </header>
-
-                <div class="work-process-grid">
-                    <article class="process-card">
-                        <div class="process-number">01</div>
-                        <div class="process-icon">
-                            <i class="fas fa-stethoscope" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="process-title">Diagnóstico</h3>
-                        <p class="process-description">
-                            Analizamos tu situación actual, competencia y oportunidades 
-                            de mercado para crear una base sólida.
-                        </p>
-                    </article>
-
-                    <article class="process-card">
-                        <div class="process-number">02</div>
-                        <div class="process-icon">
-                            <i class="fas fa-map" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="process-title">Plan Estratégico</h3>
-                        <p class="process-description">
-                            Desarrollamos una estrategia personalizada con objetivos 
-                            claros, KPIs y cronograma detallado.
-                        </p>
-                    </article>
-
-                    <article class="process-card">
-                        <div class="process-number">03</div>
-                        <div class="process-icon">
-                            <i class="fas fa-cogs" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="process-title">Ejecución</h3>
-                        <p class="process-description">
-                            Implementamos las acciones planificadas con seguimiento 
-                            continuo y optimización constante.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección CTA Final -->
-        <section class="final-cta-section">
-            <div class="section-container">
-                <header class="cta-header">
-                    <h2 class="cta-title">¿Listo para impulsar tu negocio?</h2>
-                    <p class="cta-subtitle">Elige la opción que mejor se adapte a tus necesidades</p>
-                </header>
-
-                <div class="cta-options-grid">
-                    <article class="cta-option">
-                        <div class="cta-option-icon">
-                            <i class="fas fa-calendar" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="cta-option-title">Agenda una Consulta</h3>
-                        <p class="cta-option-description">Conversemos sobre tus objetivos</p>
-                        <a href="#contacto" class="cta-button secondary-cta">Agendar</a>
-                    </article>
-
-                    <article class="cta-option">
-                        <div class="cta-option-icon">
-                            <i class="fas fa-clipboard-list" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="cta-option-title">Plan Personalizado</h3>
-                        <p class="cta-option-description">Recibe una propuesta a medida</p>
-                        <a href="#contacto" class="cta-button secondary-cta">Solicitar Plan</a>
-                    </article>
-
-                    <article class="cta-option">
-                        <div class="cta-option-icon">
-                            <i class="fas fa-calculator" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="cta-option-title">Cotización Rápida</h3>
-                        <p class="cta-option-description">Obtén precios en 24 horas</p>
-                        <a href="#contacto" class="cta-button secondary-cta">Cotizar</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Contacto -->
-        <section class="contact-section paper-texture" id="contacto">
-            <div class="section-container">
-                <header class="section-header">
-                    <h2 class="section-title highlighted">Conversemos sobre tu proyecto</h2>
-                    <p class="section-subtitle">Completa el formulario y te contactaremos en menos de 24 horas</p>
-                </header>
-
-                <div class="contact-form-container">
-                    <form class="contact-form" action="#" method="POST" aria-label="Formulario de contacto">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="nombre" class="form-label">Nombre completo *</label>
-                                <div class="input-wrapper">
-                                    <i class="fas fa-user input-icon" aria-hidden="true"></i>
-                                    <input type="text" 
-                                           id="nombre" 
-                                           name="nombre" 
-                                           class="form-input" 
-                                           placeholder="Tu nombre completo" 
-                                           required 
-                                           aria-required="true">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email *</label>
-                                <div class="input-wrapper">
-                                    <i class="fas fa-envelope input-icon" aria-hidden="true"></i>
-                                    <input type="email" 
-                                           id="email" 
-                                           name="email" 
-                                           class="form-input" 
-                                           placeholder="tu@email.com" 
-                                           required 
-                                           aria-required="true">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="empresa" class="form-label">Empresa *</label>
-                                <div class="input-wrapper">
-                                    <i class="fas fa-building input-icon" aria-hidden="true"></i>
-                                    <input type="text" 
-                                           id="empresa" 
-                                           name="empresa" 
-                                           class="form-input" 
-                                           placeholder="Nombre de tu empresa" 
-                                           required 
-                                           aria-required="true">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="telefono" class="form-label">Teléfono *</label>
-                                <div class="input-wrapper">
-                                    <i class="fas fa-phone input-icon" aria-hidden="true"></i>
-                                    <input type="tel" 
-                                           id="telefono" 
-                                           name="telefono" 
-                                           class="form-input" 
-                                           placeholder="+56 9 1234 5678" 
-                                           required 
-                                           aria-required="true">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label for="mensaje" class="form-label">Mensaje *</label>
-                            <textarea id="mensaje" 
-                                      name="mensaje" 
-                                      class="form-textarea" 
-                                      rows="4" 
-                                      placeholder="Cuéntanos sobre tu proyecto y objetivos..." 
-                                      required 
-                                      aria-required="true"></textarea>
-                        </div>
-
-                        <div class="form-submit">
-                            <button type="submit" class="submit-button">
-                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                                <span>Enviar Mensaje</span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer" role="contentinfo">
-        <div class="footer-container">
-            <div class="footer-content">
-                <!-- Información de la Empresa -->
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="assets/images/logo_solo_transparente.svg" 
-                             alt="KATEMA Logo" 
-                             class="footer-logo-image">
-                        <div class="footer-brand-text">
-                            <h3 class="footer-brand-name">KATEMA</h3>
-                            <p class="footer-brand-tagline">MARKETING Y PUBLICIDAD</p>
-                        </div>
-                    </div>
-                    <p class="footer-description">
-                        Impulsamos el crecimiento de tu negocio con estrategias  
-                        integrales y resultados medibles.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://facebook.com/katema" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="social-link" 
-                           aria-label="Síguenos en Facebook">
-                            <i class="fab fa-facebook" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://instagram.com/katema" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="social-link" 
-                           aria-label="Síguenos en Instagram">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://linkedin.com/company/katema" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="social-link" 
-                           aria-label="Síguenos en LinkedIn">
-                            <i class="fab fa-linkedin" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://twitter.com/katema" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="social-link" 
-                           aria-label="Síguenos en Twitter">
-                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Servicios -->
-                <div class="footer-section">
-                    <h4 class="footer-section-title">Servicios</h4>
-                    <nav class="footer-nav" aria-label="Servicios">
-                        <ul class="footer-nav-list">
-                            <li><a href="#servicios" class="footer-link">Marketing Digital</a></li>
-                            <li><a href="#servicios" class="footer-link">SEO y SEM</a></li>
-                            <li><a href="#servicios" class="footer-link">Redes Sociales</a></li>
-                            <li><a href="#servicios" class="footer-link">Contenidos</a></li>
-                            <li><a href="#servicios" class="footer-link">Publicidad Digital</a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <!-- Empresa -->
-                <div class="footer-section">
-                    <h4 class="footer-section-title">Empresa</h4>
-                    <nav class="footer-nav" aria-label="Información de la empresa">
-                        <ul class="footer-nav-list">
-                            <li><a href="#inicio" class="footer-link">Nosotros</a></li>
-                            <!-- <li><a href="#beneficios" class="footer-link">Casos de Éxito</a></li>
-                            <li><a href="#proceso" class="footer-link">Blog</a></li>
-                            <li><a href="#contacto" class="footer-link">Carreras</a></li> -->
-                        </ul>
-                    </nav>
-                </div>
-
-                <!-- Contacto -->
-                <div class="footer-section">
-                    <h4 class="footer-section-title">Contacto</h4>
-                    <address class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <a href="mailto:contacto@katema.cl" class="contact-link">contacto@katema.cl</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone" aria-hidden="true"></i>
-                            <a href="tel:+56912345678" class="contact-link">+56 9 1234 5678</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                            <span class="contact-text">Santiago, Chile</span>
-                        </div>
-                    </address>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="copyright">
-                    <span>© <span id="current-year">2024</span> Katema Marketing Digital. Todos los derechos reservados.</span>
-                    <nav class="legal-nav" aria-label="Enlaces legales">
-                        <a href="#" class="legal-link">Términos y Condiciones</a>
-                        <a href="#" class="legal-link">Política de Privacidad</a>
-                    </nav>
-                </div>
-                <p class="developer-credit">
-                    ✨ Diseñado y desarrollado por <a href="https://www.codehub.cl" target="_blank" rel="noopener noreferrer" class="developer-link">codehub.cl</a>
-                </p>
+<!-- ─── Hero ─── -->
+<section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-eyebrow">Santiago, Chile</div>
+            <h1 class="hero-title">
+                <span class="name">KATEMA</span>
+                <span class="sub">Una marca. Múltiples mundos.</span>
+            </h1>
+            <p class="hero-desc">
+                Construimos empresas con propósito. Tecnología que protege, marketing que mueve y café que conecta. Todo bajo una sola visión.
+            </p>
+            <div class="hero-actions">
+                <a href="#verticales" class="btn btn-yellow">
+                    <i class="fas fa-compass"></i> Conocer Nuestras Marcas
+                </a>
+                <a href="#contacto" class="btn btn-border">
+                    <i class="fas fa-envelope"></i> Escribirnos
+                </a>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/circle360.js"></script>
+<!-- ─── Verticales ─── -->
+<section class="section brands-section" id="verticales">
+    <div class="container">
+        <div class="brands-header">
+            <div class="section-eyebrow">Nuestras Marcas</div>
+            <h2 class="section-title">Tres mundos, una sola esencia</h2>
+            <p class="section-sub">Cada vertical de Katema tiene su propia identidad, equipo y foco — pero comparten los mismos valores.</p>
+        </div>
+        <div class="brands-grid">
+
+            <!-- Tech -->
+            <div class="brand-card card-tech">
+                <div class="brand-card-top">
+                    <div class="brand-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="brand-label">Tecnología</div>
+                    <div class="brand-name">Katema Tech</div>
+                    <p class="brand-desc">Desarrollo de software, ciberseguridad y peritajes informáticos para empresas que quieren crecer con seguridad digital.</p>
+                    <div class="brand-tags">
+                        <span class="btag">Desarrollo de Software</span>
+                        <span class="btag">Ciberseguridad</span>
+                        <span class="btag">Peritajes</span>
+                        <span class="btag">Cloud</span>
+                    </div>
+                </div>
+                <div class="brand-card-cta">
+                    <span class="brand-url">tech.katema.cl</span>
+                    <a href="https://tech.katema.cl" class="brand-link" target="_blank">
+                        Visitar <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- MKT -->
+            <div class="brand-card card-mkt">
+                <div class="brand-card-top">
+                    <div class="brand-icon"><i class="fas fa-bullseye"></i></div>
+                    <div class="brand-label">Marketing & Marca</div>
+                    <div class="brand-name">Katema MKT</div>
+                    <p class="brand-desc">Estrategias de marketing digital, construcción de marcas y publicidad que genera resultados medibles y crecimiento real.</p>
+                    <div class="brand-tags">
+                        <span class="btag">Branding</span>
+                        <span class="btag">SEO & SEM</span>
+                        <span class="btag">Publicidad Digital</span>
+                        <span class="btag">Contenidos</span>
+                    </div>
+                </div>
+                <div class="brand-card-cta">
+                    <span class="brand-url">mkt.katema.cl</span>
+                    <a href="https://mkt.katema.cl" class="brand-link" target="_blank">
+                        Visitar <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Café -->
+            <div class="brand-card card-cafe">
+                <div class="brand-card-top">
+                    <div class="brand-icon"><i class="fas fa-coffee"></i></div>
+                    <div class="brand-label">Café de Especialidad</div>
+                    <div class="brand-name">Katema Café</div>
+                    <p class="brand-desc">Granos 100% arábica seleccionados de Bolivia, Colombia y Perú. Cuatro perfiles únicos que cuentan historias en cada taza.</p>
+                    <div class="brand-tags">
+                        <span class="btag">Grano Entero</span>
+                        <span class="btag">Origen Único</span>
+                        <span class="btag">SCA Certificado</span>
+                        <span class="btag">Delivery</span>
+                    </div>
+                </div>
+                <div class="brand-card-cta">
+                    <span class="brand-url">cafe.katema.cl</span>
+                    <a href="https://cafe.katema.cl" class="brand-link" target="_blank">
+                        Visitar <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ─── Manifiesto ─── -->
+<section class="section manifesto" id="nosotros">
+    <div class="manifesto-bg"></div>
+    <div class="container">
+        <p class="manifesto-quote">
+            "Katema no es una empresa. Es una forma de ver el mundo: crear con <em>propósito</em>, construir con <em>rigor</em> y dejar una huella real en cada industria que tocamos."
+        </p>
+        <div class="manifesto-author">Katema — Santiago, Chile</div>
+    </div>
+</section>
+
+<!-- ─── Valores ─── -->
+<section class="section" style="padding-top:0;">
+    <div class="container">
+        <div class="values-grid">
+            <div class="value-block">
+                <i class="value-icon fas fa-seedling"></i>
+                <div class="value-name">Propósito</div>
+                <p class="value-text">Todo lo que hacemos tiene una razón de ser. No ejecutamos por ejecutar.</p>
+            </div>
+            <div class="value-block">
+                <i class="value-icon fas fa-ruler-combined"></i>
+                <div class="value-name">Rigor</div>
+                <p class="value-text">Altos estándares en cada detalle, desde el código hasta el grano de café.</p>
+            </div>
+            <div class="value-block">
+                <i class="value-icon fas fa-link"></i>
+                <div class="value-name">Coherencia</div>
+                <p class="value-text">Lo que prometemos, lo entregamos. Sin excusas ni letra chica.</p>
+            </div>
+            <div class="value-block">
+                <i class="value-icon fas fa-expand-arrows-alt"></i>
+                <div class="value-name">Crecimiento</div>
+                <p class="value-text">Construimos para escalar: nuestros proyectos y los de nuestros clientes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Contacto ─── -->
+<section class="section" id="contacto" style="background: var(--bg-2);">
+    <div class="container">
+        <div class="contact-inner">
+            <div class="section-eyebrow" style="text-align:center;">Contacto</div>
+            <h2 class="section-title" style="text-align:center; margin-top:8px;">¿Tienes un proyecto en mente?</h2>
+            <p class="contact-desc">Escríbenos directamente o busca la vertical de Katema que mejor se adapta a lo que necesitas.</p>
+            <div class="contact-links">
+                <a href="mailto:hola@katema.cl" class="contact-link">
+                    <i class="fas fa-envelope"></i> hola@katema.cl
+                </a>
+                <a href="https://wa.me/56912345678" target="_blank" class="contact-link">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://instagram.com/katema" target="_blank" class="contact-link">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand-name">KAT<span>E</span>MA</div>
+                <p class="footer-tagline">Una marca. Múltiples mundos.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/katema" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/katema" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/katema" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div>
+                    <div class="footer-col-title">Nuestras Marcas</div>
+                    <div class="footer-links">
+                        <a href="https://tech.katema.cl">Katema Tech</a>
+                        <a href="https://mkt.katema.cl">Katema MKT</a>
+                        <a href="https://cafe.katema.cl">Katema Café</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Contacto</div>
+                    <div class="footer-links">
+                        <a href="mailto:hola@katema.cl">hola@katema.cl</a>
+                        <a href="https://wa.me/56912345678">WhatsApp</a>
+                        <a href="#">Santiago, Chile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">© <span id="yr"></span> Katema. Todos los derechos reservados.</div>
+            <div class="footer-copy"><a href="#" style="color:var(--text-3);">Política de Privacidad</a></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
