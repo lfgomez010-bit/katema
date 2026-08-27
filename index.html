@@ -1,1 +1,565 @@
+<title>Katema</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,300;0,400;0,500;1,400&family=Sometype+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ink:#0A0C0B;
+  --ink-2:#111413;
+  --ink-3:#181C1A;
+  --paper:#F0F1ED;
+  --muted:#8C948F;
+  --muted-2:#5C645F;
+  --line:#242926;
+  --tech:#00C8E0;
+  --cafe:#D9A441;
+  --mkt:#C6F03C;
+  --spine:#3A403C;
+
+  --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Newsreader',Georgia,'Times New Roman',serif;
+  --f-mono:'Sometype Mono',ui-monospace,'SF Mono',Menlo,monospace;
+
+  --gut:clamp(20px,5vw,72px);
+  --maxw:1240px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--f-body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+/* ---------- spine ---------- */
+.spine{
+  position:fixed;left:0;top:0;bottom:0;width:3px;
+  background:var(--spine);
+  transition:background .6s ease;
+  z-index:40;
+}
+@media (prefers-reduced-motion:reduce){.spine{transition:none}}
+@media (max-width:820px){.spine{width:2px}}
+
+/* ---------- type ---------- */
+.eyebrow{
+  font-family:var(--f-mono);
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:block;
+}
+h1,h2,h3,.dsp{
+  font-family:var(--f-display);
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:.95;
+  text-transform:uppercase;
+  text-wrap:balance;
+  margin:0;
+}
+h2{font-size:clamp(30px,4.6vw,58px)}
+h3{font-size:clamp(20px,2.2vw,27px);letter-spacing:-.01em}
+p{margin:0 0 1em}
+.lede{font-size:clamp(18px,2vw,23px);line-height:1.5;color:#D6D9D3;max-width:62ch}
+.small{font-size:15px;color:var(--muted);line-height:1.55}
+
+section{padding:clamp(72px,10vw,140px) 0;border-top:1px solid var(--line)}
+
+/* ---------- nav ---------- */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,12,11,.82);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:16px;padding-bottom:16px}
+.mark{display:flex;align-items:center;gap:11px;text-decoration:none}
+.mark .glyph{
+  width:30px;height:30px;flex:none;
+  border:1.5px solid var(--paper);
+  display:grid;place-items:center;
+  font-family:var(--f-display);font-weight:800;font-size:15px;line-height:1;
+}
+.mark .wordmark{font-family:var(--f-display);font-weight:800;font-size:19px;letter-spacing:.06em}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;color:var(--muted);padding:6px 0;
+  border-bottom:1px solid transparent;
+}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--paper);border-bottom-color:var(--spine)}
+@media (max-width:900px){.nav-links{display:none}}
+
+.btn{
+  display:inline-block;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;padding:11px 20px;border:1px solid var(--paper);color:var(--paper);
+  transition:background .18s ease,color .18s ease;
+}
+.btn:hover,.btn:focus-visible{background:var(--paper);color:var(--ink)}
+.btn.solid{background:var(--paper);color:var(--ink)}
+.btn.solid:hover,.btn.solid:focus-visible{background:transparent;color:var(--paper)}
+
+:focus-visible{outline:2px solid var(--spine);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(64px,9vw,120px);padding-bottom:0;border-top:none}
+.hero h1{font-size:clamp(44px,8.6vw,116px);margin-bottom:28px}
+.hero .thin{font-weight:400;color:var(--muted)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(28px,5vw,72px);align-items:end}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;align-items:start}}
+.hero-meta{display:flex;flex-direction:column;gap:18px;padding-bottom:6px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+
+/* ---------- index of lines ---------- */
+.index{margin-top:clamp(56px,8vw,104px);border-top:1px solid var(--line)}
+.idx-row{
+  display:grid;grid-template-columns:44px 1fr auto;gap:clamp(16px,3vw,40px);align-items:center;
+  padding:clamp(20px,3vw,30px) 0;border-bottom:1px solid var(--line);
+  text-decoration:none;position:relative;
+}
+.idx-row::after{
+  content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--c);
+  transition:width .4s cubic-bezier(.2,.7,.3,1);
+}
+.idx-row:hover::after,.idx-row:focus-visible::after{width:100%}
+.idx-dot{width:11px;height:11px;border-radius:50%;background:var(--c)}
+.idx-name{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,3.6vw,44px);text-transform:uppercase;letter-spacing:-.01em;line-height:1}
+.idx-name span{color:var(--c)}
+.idx-what{font-family:var(--f-body);font-size:16px;color:var(--muted);margin-top:7px;line-height:1.4}
+.idx-go{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+.idx-row:hover .idx-go,.idx-row:focus-visible .idx-go{color:var(--c)}
+@media (max-width:680px){
+  .idx-row{grid-template-columns:22px 1fr;gap:14px}
+  .idx-go{display:none}
+}
+
+/* ---------- thesis ---------- */
+.two{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,6vw,90px)}
+@media (max-width:900px){.two{grid-template-columns:1fr;gap:30px}}
+.sticky-h{position:sticky;top:110px;align-self:start}
+@media (max-width:900px){.sticky-h{position:static}}
+
+/* ---------- matrix ---------- */
+.matrix-scroll{overflow-x:auto;margin-top:44px;border-top:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-family:var(--f-body);font-size:15.5px}
+th,td{text-align:left;padding:20px 22px 20px 0;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;padding-top:16px;padding-bottom:14px;
+}
+thead th .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:middle}
+tbody th{
+  font-family:var(--f-display);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.01em;
+  width:22%;padding-right:32px;color:var(--paper);
+}
+td{color:#C3C8C2;line-height:1.45}
+td.na{color:var(--muted-2);font-family:var(--f-mono);font-size:13px}
+
+/* ---------- line bands ---------- */
+.band{border-top:1px solid var(--line);padding:clamp(60px,8vw,104px) 0}
+.band-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.band-head .dot{width:13px;height:13px;border-radius:50%;background:var(--c);transform:translateY(-2px)}
+.band-head h3{font-size:clamp(28px,4.4vw,52px);font-weight:800}
+.band-head h3 span{color:var(--c)}
+.band-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:900px){.band-grid{grid-template-columns:1fr;gap:28px}}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;list-style:none;padding:0}
+.chips li{
+  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--line);padding:7px 11px;color:var(--muted);
+}
+.band-aside{border-left:2px solid var(--c);padding-left:clamp(18px,3vw,30px)}
+.band-aside .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c);display:block;margin-bottom:12px}
+.band-aside p{font-size:16px;color:#C3C8C2;margin-bottom:.85em}
+.band-aside a{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--c);text-decoration:none;border-bottom:1px solid transparent}
+.band-aside a:hover,.band-aside a:focus-visible{border-bottom-color:var(--c)}
+
+/* ---------- standard ---------- */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:52px;border:1px solid var(--line)}
+@media (max-width:820px){.principles{grid-template-columns:1fr}}
+.principle{background:var(--ink);padding:clamp(26px,3.4vw,40px)}
+.principle h3{font-size:19px;margin-bottom:14px}
+.principle p{font-size:16px;color:var(--muted);margin:0}
+
+/* ---------- tbd ---------- */
+.tbd{
+  border-bottom:1px dashed var(--muted-2);color:var(--muted);
+  font-family:var(--f-mono);font-size:.86em;
+}
+
+/* ---------- contact ---------- */
+.contact{background:var(--ink-2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,84px);align-items:start}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr;gap:34px}}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.field label{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{
+  background:transparent;border:none;border-bottom:1px solid var(--line);
+  color:var(--paper);font-family:var(--f-body);font-size:16px;padding:9px 0;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--paper)}
+.field select option{background:var(--ink-2);color:var(--paper)}
+.field textarea{resize:vertical;min-height:76px}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:12px 22px;font-size:16px;margin-top:26px}
+.dl dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.dl dd{margin:0;color:#C3C8C2}
+.dl a{text-decoration:none;border-bottom:1px solid var(--line)}
+.dl a:hover{border-bottom-color:var(--paper)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:52px 0 40px;background:var(--ink)}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.foot-lines{display:flex;gap:26px;flex-wrap:wrap}
+.foot-lines a{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.foot-lines a:hover{color:var(--paper)}
+.foot-note{font-family:var(--f-mono);font-size:11px;color:var(--muted-2);letter-spacing:.04em;margin-top:34px;line-height:1.7}
+</style>
+
+<div class="spine" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="mark" href="#top">
+      <span class="glyph" aria-hidden="true">K</span>
+      <span class="wordmark">KATEMA</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#tesis">La idea</a>
+      <a href="#lineas">Líneas</a>
+      <a href="#estandar">Cómo trabajamos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn" href="#contacto">Hablemos</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" data-line="none">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Grupo Katema · Santiago de Chile</span>
+          <h1 style="margin-top:22px">Tres oficios.<br>Un solo<br><span class="thin">interlocutor.</span></h1>
+        </div>
+        <div class="hero-meta">
+          <p class="lede">Katema reúne tecnología, marketing y café bajo una misma casa. No porque se parezcan, sino porque le sirven a la misma empresa.</p>
+          <div class="hero-cta">
+            <a class="btn solid" href="#lineas">Ver las líneas</a>
+            <a class="btn" href="#tesis">Por qué juntas</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="index">
+        <a class="idx-row" href="https://tech.katema.cl" style="--c:var(--tech)">
+          <span class="idx-dot" aria-hidden="true"></span>
+          <span>
+            <span class="idx-name">Katema <span>Tech</span></span>
+            <span class="idx-what">Infraestructura, ciberseguridad y peritajes informáticos certificados.</span>
+          </span>
+          <span class="idx-go">tech.katema.cl ↗</span>
+        </a>
+        <a class="idx-row" href="https://mkt.katema.cl" style="--c:var(--mkt)">
+          <span class="idx-dot" aria-hidden="true"></span>
+          <span>
+            <span class="idx-name">Katema <span>MKT</span></span>
+            <span class="idx-what">Estrategia, contenidos y publicidad digital con métricas que importan.</span>
+          </span>
+          <span class="idx-go">mkt.katema.cl ↗</span>
+        </a>
+        <a class="idx-row" href="https://cafe.katema.cl" style="--c:var(--cafe)">
+          <span class="idx-dot" aria-hidden="true"></span>
+          <span>
+            <span class="idx-name">Katema <span>Café</span></span>
+            <span class="idx-what">Grano de origen seleccionado, para la casa y para la oficina.</span>
+          </span>
+          <span class="idx-go">cafe.katema.cl ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESIS -->
+  <section id="tesis" data-line="none">
+    <div class="wrap">
+      <div class="two">
+        <div class="sticky-h">
+          <span class="eyebrow">La idea</span>
+          <h2 style="margin-top:18px">El cliente<br>es el mismo</h2>
+        </div>
+        <div>
+          <p class="lede">Una empresa que crece necesita que su red funcione, que su marca se vea y que su gente esté bien atendida. Hoy esas tres cosas las compra a tres proveedores distintos, con tres contratos y tres conversaciones.</p>
+          <p>Katema existe para reducir eso a una. Cada línea es autónoma, con su propio equipo y su propio estándar, pero comparten cliente, criterio y responsable. Cuando una empresa nos abre la puerta por un lado, entiende el resto sin que haya que explicarlo dos veces.</p>
+          <p>No prometemos sinergia como concepto. La sinergia es concreta: los mismos clientes, la misma factura, el mismo teléfono cuando algo se cae.</p>
+        </div>
+      </div>
+
+      <div class="matrix-scroll" role="region" aria-label="Qué aporta cada línea según el momento de la empresa" tabindex="0">
+        <table>
+          <caption class="eyebrow" style="text-align:left;padding:26px 0 4px">Qué entra en juego, y cuándo</caption>
+          <thead>
+            <tr>
+              <th scope="col">Momento de la empresa</th>
+              <th scope="col"><span class="sw" style="background:var(--tech)"></span>Tech</th>
+              <th scope="col"><span class="sw" style="background:var(--mkt)"></span>MKT</th>
+              <th scope="col"><span class="sw" style="background:var(--cafe)"></span>Café</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Abre una oficina</th>
+              <td>Red, WiFi corporativo y control de accesos</td>
+              <td>Señalética, lanzamiento y presencia local</td>
+              <td>Suscripción de grano para la cocina</td>
+            </tr>
+            <tr>
+              <th scope="row">Lanza un producto</th>
+              <td>Infraestructura que aguante el peak</td>
+              <td>Campaña, embudo y medición de KPIs</td>
+              <td>Kit de prensa y activación en el evento</td>
+            </tr>
+            <tr>
+              <th scope="row">Enfrenta un incidente</th>
+              <td>Peritaje informático certificado y contención</td>
+              <td>Manejo de comunicación y reputación</td>
+              <td class="na">— no aplica</td>
+            </tr>
+            <tr>
+              <th scope="row">Cierra el año</th>
+              <td>Auditoría de seguridad y plan del siguiente ciclo</td>
+              <td>Informe de resultados y presupuesto</td>
+              <td>Regalo corporativo para clientes y equipo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- LÍNEAS -->
+  <section id="lineas" style="padding-bottom:0" data-line="none">
+    <div class="wrap">
+      <span class="eyebrow">Las líneas</span>
+      <h2 style="margin-top:18px;max-width:16ch">Autónomas por fuera,<br>coordinadas por dentro</h2>
+    </div>
+
+    <div class="band" style="--c:var(--tech)" data-line="tech">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="dot" aria-hidden="true"></span>
+          <h3>Katema <span>Tech</span></h3>
+        </div>
+        <div class="band-grid">
+          <div>
+            <p class="lede">Tecnología que protege y transforma el negocio: infraestructura, blindaje digital y respaldo técnico-legal con peritajes informáticos certificados.</p>
+            <ul class="chips">
+              <li>Ciberseguridad</li><li>Peritajes informáticos</li><li>Redes y WiFi corporativo</li>
+              <li>Consultoría</li><li>Auditoría</li><li>Continuidad operacional</li>
+            </ul>
+          </div>
+          <div class="band-aside">
+            <span class="k">Por qué está en Katema</span>
+            <p>Es la línea que abre la puerta en empresas medianas: entra por un problema urgente y se queda por confianza. Esa confianza es la que después sostiene al resto.</p>
+            <a href="https://tech.katema.cl">Ir a tech.katema.cl ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band" style="--c:var(--mkt)" data-line="mkt">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="dot" aria-hidden="true"></span>
+          <h3>Katema <span>MKT</span></h3>
+        </div>
+        <div class="band-grid">
+          <div>
+            <p class="lede">Estrategias construidas sobre datos reales, no sobre corazonadas. Análisis competitivo, definición de audiencias y KPIs que se revisan mes a mes.</p>
+            <ul class="chips">
+              <li>Estrategia y análisis</li><li>SEO y SEM</li><li>Redes sociales</li>
+              <li>Contenidos</li><li>Publicidad digital</li><li>Medición</li>
+            </ul>
+          </div>
+          <div class="band-aside">
+            <span class="k">Por qué está en Katema</span>
+            <p>Tech resuelve que la empresa funcione; MKT resuelve que la encuentren. Es la continuación natural de la misma conversación, con el mismo interlocutor.</p>
+            <a href="https://mkt.katema.cl">Ir a mkt.katema.cl ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band" style="--c:var(--cafe)" data-line="cafe">
+      <div class="wrap">
+        <div class="band-head">
+          <span class="dot" aria-hidden="true"></span>
+          <h3>Katema <span>Café</span></h3>
+        </div>
+        <div class="band-grid">
+          <div>
+            <p class="lede">Granos seleccionados de Bolivia, Colombia y Perú. Cuatro perfiles — Ámbar, Obsidiana, Cumbre y Sierra — 100% arábica, con despacho a domicilio y a oficinas.</p>
+            <ul class="chips">
+              <li>Venta directa</li><li>Suscripción para oficinas</li><li>Regalo corporativo</li>
+              <li>Eventos y activaciones</li><li>100% arábica</li><li>Certificado SCA</li>
+            </ul>
+          </div>
+          <div class="band-aside">
+            <span class="k">La línea que abre en 2026</span>
+            <p>Café Katema Empresas: el mismo grano que se vende al consumidor, ahora en formato corporativo. Es lo que convierte a Katema en una marca con presencia diaria dentro del cliente.</p>
+            <a href="https://cafe.katema.cl">Ir a cafe.katema.cl ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTÁNDAR -->
+  <section id="estandar" data-line="none">
+    <div class="wrap">
+      <div class="two">
+        <div class="sticky-h">
+          <span class="eyebrow">Cómo trabajamos</span>
+          <h2 style="margin-top:18px">El estándar<br>que comparten</h2>
+        </div>
+        <div>
+          <p class="lede">Un tostado y una auditoría de seguridad no se parecen en nada. Lo que sí se parece es la forma de llegar al resultado, y eso es lo que hace que las tres líneas puedan llevar el mismo nombre.</p>
+        </div>
+      </div>
+
+      <div class="principles">
+        <article class="principle">
+          <h3>Selección</h3>
+          <p>Elegimos el origen antes que el volumen. Sirve para un grano y sirve para un proveedor de infraestructura: si la materia prima es mala, el proceso no la salva.</p>
+        </article>
+        <article class="principle">
+          <h3>Proceso</h3>
+          <p>Cada línea trabaja con un método escrito y repetible, no con improvisación. Es la única forma de que el resultado no dependa de quién esté ese día.</p>
+        </article>
+        <article class="principle">
+          <h3>Evidencia</h3>
+          <p>Informe de KPIs, informe pericial, ficha de tueste. Todo lo que entregamos deja registro, y el cliente puede revisarlo sin depender de nuestra palabra.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" data-line="none">
+    <div class="wrap">
+      <div class="two">
+        <div class="sticky-h">
+          <span class="eyebrow">Nosotros</span>
+          <h2 style="margin-top:18px">Quién está<br>detrás</h2>
+        </div>
+        <div>
+          <p class="lede">Katema es un grupo chileno con base en Santiago, fundado en <span class="tbd">[año por confirmar]</span> y formado hoy por <span class="tbd">[n° de personas]</span> personas distribuidas en las tres líneas.</p>
+          <p><span class="tbd">[Párrafo de origen: cómo parte Katema, con qué línea, qué llevó a abrir las siguientes. Esta es la parte que da credibilidad frente a un gerente que no los conoce — conviene que sea real y específica, no genérica.]</span></p>
+          <p><span class="tbd">[Opcional: nombres y rol de los socios, con foto. Alternativa: dejar solo el relato y sumar equipo cuando haya más línea.]</span></p>
+
+          <dl class="dl">
+            <dt>Base</dt><dd>Santiago, Chile</dd>
+            <dt>Líneas</dt><dd>Tech · MKT · Café</dd>
+            <dt>Clientes</dt><dd><span class="tbd">[sector y tamaño típico]</span></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contact" data-line="none">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <span class="eyebrow">Contacto</span>
+          <h2 style="margin-top:18px">Una empresa,<br>una conversación</h2>
+          <p class="lede" style="margin-top:24px">Si necesitas más de una línea, escribe aquí y coordinamos una sola reunión. Si ya sabes cuál te sirve, entra directo a su sitio.</p>
+          <dl class="dl">
+            <dt>Correo</dt><dd><a href="mailto:contacto@katema.cl">contacto@katema.cl</a></dd>
+            <dt>Teléfono</dt><dd><span class="tbd">[por definir]</span></dd>
+            <dt>Ubicación</dt><dd>Santiago, Chile</dd>
+          </dl>
+        </div>
+        <form onsubmit="event.preventDefault();this.querySelector('.sent').hidden=false">
+          <div class="field">
+            <label for="f-emp">Empresa</label>
+            <input id="f-emp" name="empresa" type="text" placeholder="Nombre de tu empresa">
+          </div>
+          <div class="field">
+            <label for="f-mail">Correo</label>
+            <input id="f-mail" name="correo" type="email" placeholder="tu@empresa.cl">
+          </div>
+          <div class="field">
+            <label for="f-linea">Qué te interesa</label>
+            <select id="f-linea" name="linea">
+              <option>Tecnología y ciberseguridad</option>
+              <option>Marketing digital</option>
+              <option>Café para la oficina</option>
+              <option>Más de una línea</option>
+              <option>Todavía no lo tengo claro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">Cuéntanos brevemente</label>
+            <textarea id="f-msg" name="mensaje" placeholder="Qué necesitas resolver"></textarea>
+          </div>
+          <button class="btn solid" type="submit" style="cursor:pointer;font-family:var(--f-mono)">Enviar</button>
+          <p class="small sent" hidden style="margin-top:16px">Formulario de muestra — en el sitio real conectamos el envío a contacto@katema.cl.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="mark" href="#top">
+        <span class="glyph" aria-hidden="true">K</span>
+        <span class="wordmark">KATEMA</span>
+      </a>
+      <div class="foot-lines">
+        <a href="https://tech.katema.cl">Tech</a>
+        <a href="https://mkt.katema.cl">MKT</a>
+        <a href="https://cafe.katema.cl">Café</a>
+        <a href="mailto:contacto@katema.cl">contacto@katema.cl</a>
+      </div>
+    </div>
+    <p class="foot-note">
+      Mockup de propuesta para katema.cl · Los textos entre corchetes son marcadores por completar.<br>
+      El logo definitivo (perro origami) reemplaza la marca provisional «K» en la versión final.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var colors={none:'#3A403C',tech:'#00C8E0',mkt:'#C6F03C',cafe:'#D9A441'};
+  var spine=document.querySelector('.spine');
+  var zones=document.querySelectorAll('[data-line]');
+  if(!('IntersectionObserver' in window)){return;}
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        spine.style.background=colors[e.target.dataset.line]||colors.none;
+      }
+    });
+  },{rootMargin:'-45% 0px -45% 0px',threshold:0});
+  zones.forEach(function(z){obs.observe(z)});
+})();
+</script>
 
